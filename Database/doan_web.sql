@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 31, 2022 lúc 05:14 AM
--- Phiên bản máy phục vụ: 10.4.24-MariaDB
--- Phiên bản PHP: 7.4.28
+-- Host: 127.0.0.1
+-- Generation Time: May 21, 2025 at 07:51 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,22 +18,22 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `doan_web`
+-- Database: `doan_web`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
   `catId` int(11) NOT NULL,
   `catName` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`catId`, `catName`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `category` (`catId`, `catName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_admin`
+-- Table structure for table `tbl_admin`
 --
 
 CREATE TABLE `tbl_admin` (
@@ -57,29 +57,29 @@ CREATE TABLE `tbl_admin` (
   `adminUser` varchar(255) NOT NULL,
   `adminPass` varchar(255) NOT NULL,
   `level` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_admin`
+-- Dumping data for table `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`adminId`, `adminName`, `adminEmail`, `adminUser`, `adminPass`, `level`) VALUES
-(1, 'QuỳnhLinh', 'dd@gmail.com', 'linh22', '202cb962ac59075b964b07152d234b70', ''),
-(5, 'My Tom', 'linh@gmail.com', 'tom2105', 'c56d0e9a7ccec67b4ea131655038d604', '12');
+(6, 'Kim Hoàng', 'kimhoang@gmail.com', 'kimhoang123', '9597353e41e6957b5e7aa79214fcb256', '12'),
+(7, 'Admin1', 'admin1@gmail.com', 'admin1', '202cb962ac59075b964b07152d234b70', '1');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_brand`
+-- Table structure for table `tbl_brand`
 --
 
 CREATE TABLE `tbl_brand` (
   `brandId` int(11) NOT NULL,
   `brandName` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_brand`
+-- Dumping data for table `tbl_brand`
 --
 
 INSERT INTO `tbl_brand` (`brandId`, `brandName`) VALUES
@@ -102,7 +102,7 @@ INSERT INTO `tbl_brand` (`brandId`, `brandName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_cart`
+-- Table structure for table `tbl_cart`
 --
 
 CREATE TABLE `tbl_cart` (
@@ -115,12 +115,19 @@ CREATE TABLE `tbl_cart` (
   `quantity` int(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `userId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `tbl_cart`
+--
+
+INSERT INTO `tbl_cart` (`cartID`, `productId`, `sessionId`, `productName`, `size`, `price`, `quantity`, `image`, `userId`) VALUES
+(139, 91, 's3ttmkuf6docbml75v304a5ite', 'QUẦN TÂY NAM KHAKI DÂY KÉO RÚT', 'M', '1090000', 1, 'bd9400c2f4.jpg', 11);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_comment`
+-- Table structure for table `tbl_comment`
 --
 
 CREATE TABLE `tbl_comment` (
@@ -129,31 +136,47 @@ CREATE TABLE `tbl_comment` (
   `comment` varchar(255) NOT NULL,
   `productId` int(11) NOT NULL,
   `dateComment` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_comment`
+-- Dumping data for table `tbl_comment`
 --
 
 INSERT INTO `tbl_comment` (`id`, `namebl`, `comment`, `productId`, `dateComment`) VALUES
-(41, 'manhne', 'quas depluoon', 71, ''),
-(42, 'manhne', 'hi', 71, ''),
 (43, 'manhne', 'quá tuyet zoi', 71, ''),
-(44, 'thuy122', 'okebyby', 71, ''),
 (45, 'thuy122', 'hihihi', 71, ''),
-(46, 'thuy122', 'hh', 71, ''),
-(47, 'thuy122', 'qus tuyet zoi', 70, ''),
 (48, 'thuy122', 'Sản phẩm đẹp quá', 71, ''),
-(49, 'thuy122', 'qua dep lun anh oi', 58, ''),
-(50, 'thuy122', 'okey bayby', 58, ''),
-(51, 'thuy122', 'abc', 56, ''),
-(52, 'thuy122', 'đá', 71, ''),
-(53, 'thuy122', 'ádasd', 71, '');
+(57, 'duym1989', 'Áo đẹp quá', 62, '21/05/2025');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_order`
+-- Table structure for table `tbl_discount`
+--
+
+CREATE TABLE `tbl_discount` (
+  `coupon_id` int(11) NOT NULL,
+  `coupon_name` varchar(255) NOT NULL,
+  `coupon_code` varchar(50) NOT NULL,
+  `coupon_time` int(11) NOT NULL,
+  `coupon_conditions` tinyint(1) NOT NULL COMMENT '0: %, 1: số tiền',
+  `coupon_number` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_discount`
+--
+
+INSERT INTO `tbl_discount` (`coupon_id`, `coupon_name`, `coupon_code`, `coupon_time`, `coupon_conditions`, `coupon_number`) VALUES
+(1, 'Khách hàng mới', 'KHACHHANGMOI', 100, 0, 10.00),
+(3, 'Khách hàng mới', '12345', 100, 1, 10.00),
+(5, 'Sale hè về', 'SUMMER', 100, 0, 20.00),
+(7, 'Brand mới', 'NEWBRAND', 100, 0, 10.00);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_order`
 --
 
 CREATE TABLE `tbl_order` (
@@ -168,52 +191,32 @@ CREATE TABLE `tbl_order` (
   `order_time` datetime NOT NULL,
   `recieve_time` datetime NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_order`
+-- Dumping data for table `tbl_order`
 --
 
 INSERT INTO `tbl_order` (`orderId`, `productId`, `size`, `price`, `image`, `quantity`, `thanhtien`, `userId`, `order_time`, `recieve_time`, `status`) VALUES
-(56, 74, 'M', '6000000', '936e95c02b.jpg', 2, 12000000, 5, '2022-05-30 11:04:55', '2022-05-30 11:12:50', 4),
-(57, 74, 'M', '6000000', '936e95c02b.jpg', 1, 6000000, 5, '2022-05-30 11:23:16', '2022-05-30 11:23:32', 4),
-(58, 74, 'M', '6000000', '936e95c02b.jpg', 1, 6000000, 5, '2022-05-30 11:26:18', '0000-00-00 00:00:00', -1),
-(59, 81, 'M', '1190000', 'f29695aac5.jfif', 19, 22610000, 5, '2022-05-31 00:51:26', '2022-05-31 00:52:29', 2),
-(60, 77, 'L', '750000', '3a92fe9b64.jfif', 7, 5250000, 5, '2022-05-31 00:51:26', '2022-05-31 00:52:29', 2),
-(61, 96, 'XL', '990000', 'f5a062b608.jfif', 2, 1980000, 5, '2022-05-31 00:51:26', '2022-05-31 00:52:29', 2),
-(62, 88, 'M', '1690000', 'c6e718b57c.jfif', 3, 5070000, 5, '2022-05-31 00:51:26', '2022-05-31 00:52:29', 2),
-(63, 79, 'S', '1369000', '428bb42f4d.jfif', 3, 4107000, 5, '2022-05-31 00:51:26', '2022-05-31 00:52:29', 2),
-(64, 82, 'M', '1490000', 'a5f20177f0.jfif', 5, 7450000, 5, '2022-05-31 00:51:26', '2022-05-31 00:52:29', 2),
-(65, 92, 'L', '1190000', 'ce32e86223.jfif', 6, 7140000, 5, '2022-05-31 00:51:26', '2022-05-31 00:52:29', 2),
-(66, 91, 'M', '1090000', 'bd9400c2f4.jpg', 4, 4360000, 5, '2022-05-31 00:51:26', '2022-05-31 00:52:29', 2),
-(67, 93, 'M', '1745000', '2b18d3adeb.jfif', 1, 1745000, 5, '2022-05-31 00:51:26', '2022-05-31 00:52:29', 2),
-(68, 98, 'M', '548000', '59848e5c59.jfif', 10, 5480000, 5, '2022-05-31 00:57:50', '2022-05-31 00:58:35', 2),
-(69, 95, 'M', '790000', '63afc5eb72.jfif', 5, 3950000, 5, '2022-05-31 00:57:50', '2022-05-31 00:58:35', 2),
-(70, 103, 'M', '390000', '3e372328c0.jfif', 7, 2730000, 5, '2022-05-31 00:57:50', '2022-05-31 00:58:35', 2),
-(71, 100, 'XL', '598000', '5a320bc109.jfif', 13, 7774000, 5, '2022-05-31 00:57:50', '2022-05-31 00:58:35', 2),
-(72, 88, 'L', '1690000', 'c6e718b57c.jfif', 13, 21970000, 5, '2022-05-31 00:57:50', '2022-05-31 00:58:35', 2),
-(73, 84, 'M', '950000', '7c81aa945b.jfif', 7, 6650000, 5, '2022-05-31 00:57:50', '2022-05-31 00:58:35', 2),
-(74, 89, 'M', '1790000', '8ec266b465.jfif', 1, 1790000, 5, '2022-05-31 00:57:50', '2022-05-31 00:58:35', 2),
-(75, 102, 'L', '698000', '5567c155a3.jfif', 1, 698000, 5, '2022-05-31 00:57:50', '2022-05-31 00:58:35', 2),
-(76, 92, 'XL', '1190000', 'ce32e86223.jfif', 3, 3570000, 5, '2022-05-31 00:57:50', '2022-05-31 00:58:35', 2),
-(77, 103, 'S', '390000', '3e372328c0.jfif', 4, 1560000, 8, '2022-05-31 07:59:05', '0000-00-00 00:00:00', 1),
-(78, 77, 'M', '750000', '3a92fe9b64.jfif', 3, 2250000, 8, '2022-05-31 07:59:16', '0000-00-00 00:00:00', 0),
-(79, 81, 'S', '1190000', 'f29695aac5.jfif', 6, 7140000, 10, '2022-05-31 09:40:40', '2022-05-31 09:41:17', 3),
-(80, 88, 'S', '1690000', 'c6e718b57c.jfif', 11, 18590000, 10, '2022-05-31 09:40:40', '2022-05-31 09:41:17', 3);
+(81, 94, 'M', '3690000', 'befc208b26.jfif', 1, 3690000, 11, '2025-05-21 16:46:51', '2025-05-21 23:32:54', 4),
+(82, 60, 'M', '1125600', '1b792b54ed.jpg', 1, 1125600, 11, '2025-05-21 22:49:45', '2025-05-21 23:33:03', 2),
+(83, 91, 'L', '1090000', 'bd9400c2f4.jpg', 1, 1090000, 11, '2025-05-21 22:49:45', '2025-05-21 23:33:03', 2),
+(84, 92, 'L', '1190000', 'ce32e86223.jfif', 1, 1190000, 11, '2025-05-22 00:20:19', '0000-00-00 00:00:00', -1),
+(85, 92, 'M', '1190000', 'ce32e86223.jfif', 1, 1190000, 11, '2025-05-22 00:31:30', '0000-00-00 00:00:00', -1);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_pro`
+-- Table structure for table `tbl_pro`
 --
 
 CREATE TABLE `tbl_pro` (
   `ID` int(11) NOT NULL,
   `productName` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_pro`
+-- Dumping data for table `tbl_pro`
 --
 
 INSERT INTO `tbl_pro` (`ID`, `productName`) VALUES
@@ -224,14 +227,12 @@ INSERT INTO `tbl_pro` (`ID`, `productName`) VALUES
 (5, 'tuấn'),
 (6, 'tuấn'),
 (7, 'ava'),
-(8, 'ava'),
-(9, 'cấcc'),
-(10, 'cấcc');
+(8, 'ava');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_product`
+-- Table structure for table `tbl_product`
 --
 
 CREATE TABLE `tbl_product` (
@@ -245,10 +246,10 @@ CREATE TABLE `tbl_product` (
   `image` varchar(255) NOT NULL,
   `typeProductId` int(100) NOT NULL,
   `quantity` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_product`
+-- Dumping data for table `tbl_product`
 --
 
 INSERT INTO `tbl_product` (`productId`, `productName`, `catId`, `brandId`, `product_desc`, `type`, `price`, `image`, `typeProductId`, `quantity`) VALUES
@@ -257,7 +258,7 @@ INSERT INTO `tbl_product` (`productId`, `productName`, `catId`, `brandId`, `prod
 (57, 'Áo Khoác Bomber Gucci Jacket Màu Đen Size', 41, 18, 'Áo Khoác Bomber Gucci Jacket Màu Đen là chiếc áo thời trang dành cho nam đến từ thương hiệu Gucci nổi tiếng. Với thiết kế hiện đại cùng chất liệu cao cấp, chiếc áo Gucci Jacket Màu Đen được nhiều tín đồ thời trang săn đón.', 0, 6000000, '48babe3b85.jpg', 34, 0),
 (58, 'Áo Sơ Mi Gucci White Cotton Snake Embroidered Collar Duke Shirt', 40, 18, 'Áo Sơ Mi Gucci White Cotton Snake Embroidered Collar Duke Shirt Size 38 là chiếc áo thời trang dành cho nam đến từ thương hiệu Gucci nổi tiếng. Với thiết kế hiện đại cùng họa tiết tinh tế nổi bật áo Gucci White Cotton Snake Embroidered Collar Duke Shirt được nhiều tín đồ thời trang săn đón.', 0, 11500000, 'a84d252252.jpg', 29, 0),
 (59, 'Áo Cardigan Gucci Sweater 595514 XKA0Z 4206 Màu Xanh Navy', 41, 18, 'Áo Cardigan Gucci Sweater 595514 XKA0Z 4206 Màu Xanh Navy là chiếc áo thời trang dành cho nam đến từ thương hiệu Gucci nổi tiếng. Với thiết kế hiện đại cùng chất liệu cao cấp, chiếc áo Gucci Sweater 595514 XKA0Z 4206 Màu Xanh Navy được nhiều tín đồ thời trang săn đón.', 0, 300000, '3dec240203.jpg', 34, 5),
-(60, 'Áo Dài Tay Gucci Web Stripe-Detail Polo Shirt Màu Đen', 40, 18, 'Áo Dài Tay Gucci Web Stripe-Detail Polo Shirt Màu Đen là chiếc áo thời trang dành cho nam đến từ thương hiệu Gucci nổi tiếng. Với thiết kế hiện đại cùng chất liệu cao cấp, chiếc áo Gucci Web Stripe-Detail Polo Shirt được nhiều tín đồ thời trang săn đón.', 0, 1125600, '1b792b54ed.jpg', 29, 7),
+(60, 'Áo Dài Tay Gucci Web Stripe-Detail Polo Shirt Màu Đen', 40, 18, 'Áo Dài Tay Gucci Web Stripe-Detail Polo Shirt Màu Đen là chiếc áo thời trang dành cho nam đến từ thương hiệu Gucci nổi tiếng. Với thiết kế hiện đại cùng chất liệu cao cấp, chiếc áo Gucci Web Stripe-Detail Polo Shirt được nhiều tín đồ thời trang săn đón.', 0, 1125600, '1b792b54ed.jpg', 29, 6),
 (61, 'Áo Bomber Gucci Reversible Nylon GG Bomber Jacket Orange', 41, 18, 'Áo Bomber Gucci Reversible Nylon GG Bomber Jacket Orange là chiếc áo thời trang dành cho nam đến từ thương hiệu Gucci nổi tiếng. Với thiết kế hiện đại cùng chất liệu cao cấp, chiếc áo Gucci Reversible Nylon GG Bomber Jacket Orange được nhiều tín đồ thời trang săn đón.', 0, 2560000, '3354fdf70d.jpg', 34, 0),
 (62, 'Áo Sơ Mi Gucci Cotton Shirt With Symbols Màu Trắng ', 40, 18, 'Áo Sơ Mi Gucci Cotton Shirt With Symbols Màu Trắng là chiếc áo thời trang dành cho nam đến từ thương hiệu Gucci nổi tiếng. Với thiết kế hiện đại cùng họa tiết tinh tế nổi bật áo Gucci Cotton Shirt With Symbols được nhiều tín đồ thời trang săn đón.', 0, 25600000, '0bedfbdb7f.jpg', 29, 0),
 (63, 'Áo Polo Gucci Bee-Embroidered Slim-Fit Stretch-Cotton New SS2019 ', 40, 18, 'Áo Polo Gucci Bee-Embroidered Slim-Fit Stretch-Cotton New SS2019 Màu Đen được thiết kế cổ bẻ, tay ngắn cùng họa tiết con ong đặc trưng của Gucci tạo nên sự năng động, trẻ trung cho người mặc nhưng cũng không kém phần lịch lãm, sang trọng.', 0, 25600000, 'c0f99931c5.jpg', 28, 0),
@@ -288,7 +289,7 @@ INSERT INTO `tbl_product` (`productId`, `productName`, `catId`, `brandId`, `prod
 (88, 'JUMPSUIT LỤA SUÔNG TRƠN', 42, 16, 'Jumpsuit trơn dáng suông. Dáng áo không tay, vạt đổ từ đằng trước xuống đằng sau. Dáng quần ống đứng, rộng, độ dài chạm gót. 2 bên có 2 túi chéo. Chất liệu chính là lụa.', 1, 1690000, 'c6e718b57c.jfif', 41, 11),
 (89, 'JUMPSUIT VEST PHỐI ĐAI', 42, 22, 'Thiết kế Jumpsuit dáng suông, giữa eo được nhấn bằng đai cài. Phần áo dáng cổ vest, tay ngắn vén ống. Quần ống đứng, độ dài chạm mắt cá chân. Chất liệu chính là lụa mềm có độ bóng nhẹ.', 1, 1790000, '8ec266b465.jfif', 41, 40),
 (90, 'ÁO SƠ MI KẺ CHẤT LỤA', 40, 15, 'Áo sơ mi dáng ôm, thân áo có độ đứng. Thiết kế cổ đức. Phía trước có 2 túi hộp phối cùng khuy kim loại. Tại phần khủy tay có khuy để cài cố định khi gập ống tay. Tà áo dáng đuôi tôm xẻ ở 2 bên.\r\n\r\n\r\n\r\n\r\n', 1, 1490000, '15177fd3b3.jpg', 29, 4234),
-(91, 'QUẦN TÂY NAM KHAKI DÂY KÉO RÚT', 42, 19, 'Quần khaki ống bo chun co giãn kiểu bó, cạp chần chun có dây kéo rút. Có túi phía trước và 2 túi có nắp phía sau.', 0, 1090000, 'bd9400c2f4.jpg', 39, 70),
+(91, 'QUẦN TÂY NAM KHAKI DÂY KÉO RÚT', 42, 19, 'Quần khaki ống bo chun co giãn kiểu bó, cạp chần chun có dây kéo rút. Có túi phía trước và 2 túi có nắp phía sau.', 0, 1090000, 'bd9400c2f4.jpg', 39, 69),
 (92, 'QUẦN BÒ', 42, 15, 'Quần bò form dài chạm mắt cá chân, chất liệu thoải mái dễ vận động\r\nThiết kế trẻ trung năng động của thiết kế dáng slim fit có túi hộp may đằng sau và 2 túi chéo 2 bên hông. Mang tính ứng dụng cao khi chàng', 0, 1190000, 'ce32e86223.jfif', 38, 49),
 (93, 'ÁO VEST KẺ', 41, 21, 'Áo vest cổ hai ve cách điệu. Tay dài có 4 khuy. Có 1 túi trước ngực, 2 vuông có nắp 2 bên, có 3 túi lót bên trong. Có 2 khuy cài mặt trước. Xẻ tà 2 bên phía sau.', 0, 1745000, '2b18d3adeb.jfif', 36, 4563),
 (94, 'ÁO KHOÁC DẠ NAM DÁNG DÀI', 41, 23, 'Áo khoác dạ cổ 2 ve khoét chữ K. Tay dài có 3 khuy trang trí. 2 túi vuông có nắp 2 bên. Dáng áo suông dài. Cài bằng hàng khuy phía trước. Với chất liệu dạ ép cao cấp, mềm mại, giữ ấm tốt, không bám bụi, thiết kế thời trang, phong cách trang nhã, lịch thiệp. ', 0, 3690000, 'befc208b26.jfif', 34, 48),
@@ -304,7 +305,7 @@ INSERT INTO `tbl_product` (`productId`, `productName`, `catId`, `brandId`, `prod
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_repcomment`
+-- Table structure for table `tbl_repcomment`
 --
 
 CREATE TABLE `tbl_repcomment` (
@@ -312,47 +313,29 @@ CREATE TABLE `tbl_repcomment` (
   `nameId` int(11) NOT NULL,
   `rep` varchar(255) NOT NULL,
   `namerep` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_repcomment`
+-- Dumping data for table `tbl_repcomment`
 --
 
 INSERT INTO `tbl_repcomment` (`id`, `nameId`, `rep`, `namerep`) VALUES
-(1, 43, 'hay quas chij', ' thuy122'),
-(2, 43, 'oichi', ' thuy122'),
-(3, 43, 'oichi', ' thuy122'),
-(4, 46, 'hhh', ' thuy122'),
-(5, 47, 'hihi', ' thuy122'),
-(6, 46, 'hihimNH', ' thuy122'),
-(7, 45, 'anh manh rat deptrai', ' thuy122'),
-(8, 41, 'an com ddi', ' thuy122'),
-(9, 48, 'droi', ' thuy122'),
-(10, 48, 'cc', ' thuy122'),
-(11, 48, 'cc', ' thuy122'),
-(12, 48, 'cc', ' thuy122'),
-(13, 48, 'cc', ' thuy122'),
-(14, 48, 'cc', ' thuy122'),
-(15, 46, 'oke', ' thuy122'),
-(16, 49, 'thank', ' thuy122'),
-(17, 50, 'tim', ' thuy122'),
-(18, 53, 'dkfjskdjf', ' thuy122'),
-(19, 53, 'lkifpkakfpas', ' thuy122');
+(20, 57, 'ok nha', ' duym1989');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_type_product`
+-- Table structure for table `tbl_type_product`
 --
 
 CREATE TABLE `tbl_type_product` (
   `typeProductID` int(100) NOT NULL,
   `typeProductName` varchar(255) NOT NULL,
   `catID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_type_product`
+-- Dumping data for table `tbl_type_product`
 --
 
 INSERT INTO `tbl_type_product` (`typeProductID`, `typeProductName`, `catID`) VALUES
@@ -386,56 +369,53 @@ INSERT INTO `tbl_type_product` (`typeProductID`, `typeProductName`, `catID`) VAL
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_uer`
+-- Table structure for table `tbl_uer`
 --
 
 CREATE TABLE `tbl_uer` (
   `userId` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `userPassword` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `gioiTinh` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `userPassword` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `gioiTinh` varchar(255) NOT NULL,
   `sdt` int(11) NOT NULL,
-  `ngaySinh` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `diaChi` text COLLATE utf8_unicode_ci NOT NULL,
-  `cauHoiBM` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `ngaySinh` varchar(255) NOT NULL,
+  `diaChi` text NOT NULL,
+  `cauHoiBM` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_uer`
+-- Dumping data for table `tbl_uer`
 --
 
 INSERT INTO `tbl_uer` (`userId`, `name`, `username`, `userPassword`, `email`, `gioiTinh`, `sdt`, `ngaySinh`, `diaChi`, `cauHoiBM`) VALUES
-(5, 'Nguyễn Thanh Quỳnh Linh', 'thuy122', '202cb962ac59075b964b07152d234b70', 'linh2106@gmail.com', 'Nữ', 981984623, '2002-06-21', 'Hồ Chí Minh', 'Thanh'),
-(7, 'Quan Văn Mạnh', 'manhne', '202cb962ac59075b964b07152d234b70', 'quanmanh901@gmail.com', 'nam', 899391826, '18-04-2002', '309/1/4 Lê Đức Thọ', '0909'),
-(8, 'Quan Văn Mạnh', 'manh22', '202cb962ac59075b964b07152d234b70', 'manh2106@gmail.com', 'Nam', 981984623, '2002-21-06', 'Hồ Chí Minh', 'Thanh'),
-(10, 'Phạm Khánh Linh', 'khanhlinh', '202cb962ac59075b964b07152d234b70', 'nguyenthanhquynhlinh@gmail.com', 'Nam', 981984623, '2002-21-06', 'Hồ Chí Minh', 'Thanh');
+(11, 'Nguyễn Duy Minh', 'duym1989', '4a3e00961a08879c34f91ca0070ea2f5', 'duyminh89@gmail.com', 'Nam', 334681607, '1989-03-15', 'Lê Đức Thọ, TP.HCM', 'Minh');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`catId`);
 
 --
--- Chỉ mục cho bảng `tbl_admin`
+-- Indexes for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`adminId`);
 
 --
--- Chỉ mục cho bảng `tbl_brand`
+-- Indexes for table `tbl_brand`
 --
 ALTER TABLE `tbl_brand`
   ADD PRIMARY KEY (`brandId`);
 
 --
--- Chỉ mục cho bảng `tbl_cart`
+-- Indexes for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
   ADD PRIMARY KEY (`cartID`),
@@ -443,14 +423,21 @@ ALTER TABLE `tbl_cart`
   ADD KEY `userId` (`userId`);
 
 --
--- Chỉ mục cho bảng `tbl_comment`
+-- Indexes for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
   ADD PRIMARY KEY (`id`),
   ADD KEY `productId` (`productId`);
 
 --
--- Chỉ mục cho bảng `tbl_order`
+-- Indexes for table `tbl_discount`
+--
+ALTER TABLE `tbl_discount`
+  ADD PRIMARY KEY (`coupon_id`),
+  ADD UNIQUE KEY `coupon_code` (`coupon_code`);
+
+--
+-- Indexes for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
   ADD PRIMARY KEY (`orderId`),
@@ -458,13 +445,13 @@ ALTER TABLE `tbl_order`
   ADD KEY `userId` (`userId`);
 
 --
--- Chỉ mục cho bảng `tbl_pro`
+-- Indexes for table `tbl_pro`
 --
 ALTER TABLE `tbl_pro`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Chỉ mục cho bảng `tbl_product`
+-- Indexes for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`productId`),
@@ -473,121 +460,127 @@ ALTER TABLE `tbl_product`
   ADD KEY `typeProductId` (`typeProductId`);
 
 --
--- Chỉ mục cho bảng `tbl_repcomment`
+-- Indexes for table `tbl_repcomment`
 --
 ALTER TABLE `tbl_repcomment`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nameId` (`nameId`);
 
 --
--- Chỉ mục cho bảng `tbl_type_product`
+-- Indexes for table `tbl_type_product`
 --
 ALTER TABLE `tbl_type_product`
   ADD PRIMARY KEY (`typeProductID`),
   ADD KEY `tbl_type_product_ibfk_1` (`catID`);
 
 --
--- Chỉ mục cho bảng `tbl_uer`
+-- Indexes for table `tbl_uer`
 --
 ALTER TABLE `tbl_uer`
   ADD PRIMARY KEY (`userId`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `catId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_admin`
+-- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_brand`
+-- AUTO_INCREMENT for table `tbl_brand`
 --
 ALTER TABLE `tbl_brand`
   MODIFY `brandId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_cart`
+-- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_comment`
+-- AUTO_INCREMENT for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_order`
+-- AUTO_INCREMENT for table `tbl_discount`
+--
+ALTER TABLE `tbl_discount`
+  MODIFY `coupon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_pro`
+-- AUTO_INCREMENT for table `tbl_pro`
 --
 ALTER TABLE `tbl_pro`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_product`
+-- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
   MODIFY `productId` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_repcomment`
+-- AUTO_INCREMENT for table `tbl_repcomment`
 --
 ALTER TABLE `tbl_repcomment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_type_product`
+-- AUTO_INCREMENT for table `tbl_type_product`
 --
 ALTER TABLE `tbl_type_product`
   MODIFY `typeProductID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_uer`
+-- AUTO_INCREMENT for table `tbl_uer`
 --
 ALTER TABLE `tbl_uer`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `tbl_cart`
+-- Constraints for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
   ADD CONSTRAINT `tbl_cart_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `tbl_uer` (`userId`),
   ADD CONSTRAINT `tbl_cart_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `tbl_product` (`productId`);
 
 --
--- Các ràng buộc cho bảng `tbl_comment`
+-- Constraints for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
   ADD CONSTRAINT `tbl_comment_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `tbl_product` (`productId`);
 
 --
--- Các ràng buộc cho bảng `tbl_order`
+-- Constraints for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
   ADD CONSTRAINT `tbl_order_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `tbl_product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_order_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `tbl_uer` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `tbl_product`
+-- Constraints for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
   ADD CONSTRAINT `tbl_product_ibfk_1` FOREIGN KEY (`brandId`) REFERENCES `tbl_brand` (`brandId`),
@@ -595,13 +588,13 @@ ALTER TABLE `tbl_product`
   ADD CONSTRAINT `tbl_product_ibfk_3` FOREIGN KEY (`typeProductId`) REFERENCES `tbl_type_product` (`typeProductID`);
 
 --
--- Các ràng buộc cho bảng `tbl_repcomment`
+-- Constraints for table `tbl_repcomment`
 --
 ALTER TABLE `tbl_repcomment`
   ADD CONSTRAINT `tbl_repcomment_ibfk_1` FOREIGN KEY (`nameId`) REFERENCES `tbl_comment` (`id`);
 
 --
--- Các ràng buộc cho bảng `tbl_type_product`
+-- Constraints for table `tbl_type_product`
 --
 ALTER TABLE `tbl_type_product`
   ADD CONSTRAINT `tbl_type_product_ibfk_1` FOREIGN KEY (`catID`) REFERENCES `category` (`catId`) ON DELETE CASCADE ON UPDATE CASCADE;
