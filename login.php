@@ -66,7 +66,7 @@
                                     <div class="form-container-title">Khách hàng mới của MLL
                                         <p>                              
                                             Nếu bạn chưa có tài khoản trên mll.com, hãy sử dụng tùy chọn này để truy cập biểu mẫu đăng ký.
-                                            Bằng cách cung cấp cho IVY moda thông tin chi tiết của bạn, quá trình mua hàng trên ivymoda.com sẽ là một trải nghiệm thú vị và nhanh chóng hơn!
+                                            Bằng cách cung cấp cho MLL thông tin chi tiết của bạn, quá trình mua hàng trên mll.com sẽ là một trải nghiệm thú vị và nhanh chóng hơn!
                                         </p>
                                     </div>
                                     <div class="btn-login1">
