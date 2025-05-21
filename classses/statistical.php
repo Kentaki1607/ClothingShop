@@ -2,8 +2,7 @@
 $filepath = realpath(dirname(__FILE__));
 include_once($filepath . '/../lib/database.php');
 include_once($filepath . '/../helpers/format.php');
-?>
-<?php
+
 class statistical
 {
     private $db;
@@ -14,51 +13,64 @@ class statistical
         $this->db = new Database();
         $this->fm = new Format();
     }
-    // thêm user vào DB
+
+    // ✅ 1. Tổng doanh thu (đã fix)
     public function gettongDoanhThu()
     {
-        $query = "SELECT * FROM tbl_order WHERE status = 2";
-        $result = $this->db->select($query);
-        return $result;
+        $query = "SELECT SUM(thanhtien) AS total_revenue FROM tbl_order WHERE status = 2";
+        return $this->db->select($query);
     }
-    // thêm user vào DB
+
+    // ✅ 2. Tổng khách hàng
     public function gettongKhachHang()
     {
         $query = "SELECT * FROM tbl_uer";
-        $result = $this->db->select($query);
-        return $result;
+        return $this->db->select($query);
     }
-    // thêm user vào DB
+
+    // ✅ 3. Tổng sản phẩm
     public function gettongSP()
     {
         $query = "SELECT * FROM tbl_product";
-        $result = $this->db->select($query);
-        return $result;
+        return $this->db->select($query);
     }
+
+    // ✅ 4. Tổng quản trị viên
     public function gettongAdmin()
     {
         $query = "SELECT COUNT(*) AS countadmin FROM tbl_admin";
-        $result = $this->db->select($query);
-        return $result;
+        return $this->db->select($query);
     }
+
+    // ✅ 5. Thống kê sản phẩm theo ngày
     public function gettongSPTheoNgay($data)
     {
-        $data1 = mysqli_real_escape_string($this->db->link,$data['date1']);
-        $data2 = mysqli_real_escape_string($this->db->link,$data['date2']);
-        $query = "SELECT od.* , SUM(thanhtien) AS value_sumTT , SUM(od.quantity) AS value_count , pd.productName
-        FROM tbl_order AS od INNER JOIN tbl_product AS pd ON od.productId =pd.productId
-        WHERE ( order_time BETWEEN '$data1' AND '$data2' ) AND od.status=2
-        GROUP BY  od.productId
-        ORDER BY od.productId";
-        $result = $this->db->select($query);
-        return $result;
+        $date1 = mysqli_real_escape_string($this->db->link, $data['date1']);
+        $date2 = mysqli_real_escape_string($this->db->link, $data['date2']);
+
+        $query = "SELECT od.*, 
+                        SUM(od.thanhtien) AS value_sumTT, 
+                        SUM(od.quantity) AS value_count, 
+                        pd.productName, 
+                        pd.image, 
+                        pd.price
+                  FROM tbl_order AS od 
+                  INNER JOIN tbl_product AS pd ON od.productId = pd.productId
+                  WHERE (order_time BETWEEN '$date1' AND '$date2') AND od.status = 2
+                  GROUP BY od.productId
+                  ORDER BY od.productId";
+        return $this->db->select($query);
     }
-    public function gettongSPTheoNam($data)
+
+    // ✅ 6. Thống kê sản phẩm theo năm
+    public function gettongSPTheoNam($year)
     {
-        $query = "SELECT SUM(thanhtien) AS value_sumTT , SUM(quantity) AS value_count FROM tbl_order
-                    WHERE YEAR(order_time) = '$data' AND status=2 ";
-        $result = $this->db->select($query);
-        return $result;
+        $year = mysqli_real_escape_string($this->db->link, $year);
+        $query = "SELECT SUM(thanhtien) AS value_sumTT, 
+                         SUM(quantity) AS value_count 
+                  FROM tbl_order
+                  WHERE YEAR(order_time) = '$year' AND status = 2";
+        return $this->db->select($query);
     }
 }
 ?>

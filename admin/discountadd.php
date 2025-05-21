@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,18 +10,33 @@
     <link rel="stylesheet" href="assets/css/discount.css">
     <title>Mã khuyến mãi</title>
 </head>
-<?php include '../classses/discount.php' ?>
+
 <?php
-    $discount = new discount();
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-    //có $_FILES bởi vì có update hình ảnh
-        $insertDiscount = $discount->insertDiscount($_POST);
+include_once '../lib/session.php';
+Session::init();
+include_once '../classses/discount.php';
+
+$discount = new discount();
+
+// Xử lý khi submit form
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+    $insertDiscount = $discount->insertDiscount($_POST);
+
+    if ($insertDiscount) {
+        // Lưu thông báo vào session nếu muốn
+        Session::set('discount_msg', 'Thêm mã giảm giá thành công!');
+        header("Location: discountList.php");
+        exit();
+    } else {
+        $errorMessage = "Thêm thất bại. Vui lòng kiểm tra lại.";
     }
+}
 ?>
+
 <body>
-    <?php include './inc/sidebar.php' ?>
+    <?php include './inc/sidebar.php'; ?>
     <div class="main-content">
-        <?php include './inc/header.php' ?>
+        <?php include './inc/header.php'; ?>
         <main>
             <h2 class="dash-title">Nhập mã giảm giá</h2>
             <section class="recent">
@@ -34,33 +48,33 @@
                                     <div class="discount_title">
                                         <label for="">Tên mã giảm giá</label>
                                     </div>
-
                                     <div class="discount_name">
-                                        <input type="text" name="coupon_name" id="" placeholder="Nhập tên mã giảm giá">
+                                        <input type="text" name="coupon_name" placeholder="Nhập tên mã giảm giá" required>
                                     </div>
+
                                     <div class="discount_title">
                                         <label for="">Mã giảm giá</label>
                                     </div>
-
                                     <div class="discount_name">
-                                        <input type="text" name="coupon_code" id="" placeholder="Nhập mã giảm giá">
+                                        <input type="text" name="coupon_code" placeholder="Nhập mã giảm giá" required>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col l-3" style="background: white;border-left: 1px solid;border-radius: 7px;">
                                 <div class="discount_date">Date Range</div>
                                 <div>
                                     <div class="input-group">
                                         <span>Số lượng mã</span>
-                                        <input type="text" name="coupon_time" id="">
+                                        <input type="number" name="coupon_time" required>
                                     </div>
                                     <div class="input-group">
-                                        <span>Nhập số % hoặc tiềm giảm</span>
-                                        <input type="text" name="coupon_number" id="">
+                                        <span>Nhập số % hoặc tiền giảm</span>
+                                        <input type="number" name="coupon_number" required>
                                     </div>
                                     <div class="input-group">
                                         <span>Tính năng mã</span>
-                                        <select name="coupon_conditions" id="" style="width: 100%;margin-bottom: 10px;text-align: center;">
+                                        <select name="coupon_conditions" required style="width: 100%;margin-bottom: 10px;text-align: center;">
                                             <option value="">-----Chọn-----</option>
                                             <option value="0">Giảm theo phần trăm</option>
                                             <option value="1">Giảm theo tiền</option>
@@ -69,11 +83,11 @@
                                 </div>
                                 <div>
                                     <?php
-                                    if (isset($insertDiscount)) {
-                                        echo $insertDiscount;
+                                    if (isset($errorMessage)) {
+                                        echo "<p style='color:red;'>$errorMessage</p>";
                                     }
                                     ?>
-                                    <input type="submit" name="submit" value="Lưu mã" style="width: 100%;background: #323434;color: white;font-size: 25ppx;">
+                                    <input type="submit" name="submit" value="Lưu mã" style="width: 100%;background: #323434;color: white;font-size: 20px;padding: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -83,5 +97,4 @@
         </main>
     </div>
 </body>
-
 </html>

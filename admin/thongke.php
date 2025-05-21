@@ -127,7 +127,12 @@ $doanhThuNam2022 = $result2022['value_sumTT'];
                 y: '2024',
                 a: 160,
                 b: 95
-            }
+            },
+            {
+                y: '2025',
+                a: <?php echo $tongSPNam2025 ?>,
+                b: <?php echo $doanhThuNam2025 ?>
+            },
         ],
         config = {
             data: data,
