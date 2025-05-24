@@ -531,3 +531,31 @@ tr {
         padding-right: 1rem;
     }
 }
+
+.teams .card {
+    max-width: 300px;
+    margin: 0 auto;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.teams .card img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 50%;
+    border: 5px solid #ff5722;
+    object-fit: cover;
+}
+
+.teams .text {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+}
+.teams p {
+    font-size: 14px;
+    color: #ccc;
+}
