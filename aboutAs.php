@@ -143,15 +143,8 @@
                 <div class="card">
                     <div class="box">
                         <img src="./assets/img/About-Nike-Team_original.jpg" alt="">
-                        <div class="text">Nguyễn Quỳnh Linh</div>
-                        <p>Đang học lớp DCT1201 , MSSV 3120410278</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <img src="./assets/img/About-Nike-Team_original.jpg" alt="">
-                        <div class="text">Phạm Kim HoàngHoàng</div>
-                        <p>Đang học lớp DCT1204 , MSSV 31204101833</p>
+                        <div class="text">Phạm Kim Hoàng</div>
+                        <p>Đang học lớp DCT1204 , MSSV 3120410183</p>
                     </div>
                 </div>
             </div>
@@ -170,7 +163,7 @@
                              <i class="fas fa-user"></i>
                              <div class="info">
                                  <div class="head">Họ và tên</div>
-                                 <div class="sub-title">Phạm Kim HoàngHoàng</div>
+                                 <div class="sub-title">Phạm Kim Hoàng</div>
                              </div>
                          </div>
                      </div>
@@ -179,7 +172,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <div class="info">
                                 <div class="head">Địa chỉ</div>
-                                <div class="sub-title">Phường 15 , Quận Gò VấpVấp , Thành phố Hồ Chí Minh</div>
+                                <div class="sub-title">Phường 15 , Quận Gò Vấp , Thành phố Hồ Chí Minh</div>
                             </div>
                         </div>
                     </div>
