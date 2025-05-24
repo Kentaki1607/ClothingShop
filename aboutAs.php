@@ -139,7 +139,7 @@
     <section class="teams" id="teams">
         <div class="max-width">
             <h2 class="title">My teams</h2>
-            <div class="carousel owl-carousel">
+            <div class="team-containercontainer">
                 <div class="card">
                     <div class="box">
                         <img src="./assets/img/About-Nike-Team_original.jpg" alt="">
