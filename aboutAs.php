@@ -142,7 +142,7 @@
             <div class="team-container">
                 <div class="card">
                     <div class="box">
-                        <img src="./assets/img/About-Nike-Team_original.jpg" alt="">
+                        <img src="./assets/img/hachi.jpg" alt="">
                         <div class="text">Phạm Kim Hoàng</div>
                         <p>Đang học lớp DCT1204 , MSSV 3120410183</p>
                     </div>
